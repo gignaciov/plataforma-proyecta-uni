@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 from rest_framework import serializers
 from .models import Proyectino
+from .models import Proyecto
 
 class UserSerializer(serializers.ModelSerializer):
     """ A serializer class for the User model """
@@ -26,4 +27,21 @@ class ProyectinoSerializer(serializers.ModelSerializer):
             'apellido',
             'facultad',
             'especialidad',
+        )
+
+class ProyectoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Proyecto
+        fields = (
+            'id',
+            'nombre_proyecto',
+            'siglas',
+            'descripcion',
+            'edicion',
+            'fecha_inicio',
+            'fecha_fin',
+            'imagen',
+            'tipo',
+            'estado',
+            'nombre_programa',
         )

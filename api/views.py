@@ -2,8 +2,8 @@ from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 
 from django.shortcuts import render
-from .models import Proyectino
-from .serializers import ProyectinoSerializer,UserSerializer
+from .models import Proyectino,Proyecto
+from .serializers import ProyectinoSerializer,ProyectoSerializer,UserSerializer
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -26,3 +26,8 @@ class ProyectinoListCreate(generics.ListCreateAPIView):
     queryset = Proyectino.objects.all()
     serializer_class = ProyectinoSerializer
     permission_classes = (permissions.IsAuthenticated, )
+
+class ProyectoListCreate(generics.ListCreateAPIView):
+    queryset = Proyecto.objects.all()
+    serializer_class = ProyectoSerializer
+    # permission_classes = (permissions.IsAuthenticated, )
