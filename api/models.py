@@ -9,6 +9,7 @@ class Proyectino(models.Model):
     apellido = models.CharField(max_length=50)
     facultad = models.CharField(max_length=6)
     especialidad = models.CharField(max_length=50)
+    imagen = models.ImageField(upload_to = 'proyectinos', max_length=255, blank=True, null=True)
 
     def __str__(self):
         return '{0},{1}'.format(self.nombre, self.apellido)

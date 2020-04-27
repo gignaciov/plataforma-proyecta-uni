@@ -27,6 +27,7 @@ class ProyectinoSerializer(serializers.ModelSerializer):
             'apellido',
             'facultad',
             'especialidad',
+            'imagen',
         )
 
 class ProyectoSerializer(serializers.ModelSerializer):

@@ -24,6 +24,9 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView
 )
+from . import settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -40,3 +43,6 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
